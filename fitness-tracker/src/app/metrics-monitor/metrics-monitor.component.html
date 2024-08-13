@@ -1,0 +1,32 @@
+<h2>Monitor Your Metrics</h2>
+<form (ngSubmit)="addMetric()">
+  <input
+    type="date"
+    [(ngModel)]="newMetric.date"
+    id="date"
+    name="date"
+    required
+  />
+  <input
+    type="number"
+    [(ngModel)]="newMetric.weight"
+    id="weight"
+    name="weight"
+    required
+  />
+  <input
+    type="number"
+    [(ngModel)]="newMetric.bodyFatPercentage"
+    id="bodyFatPercentage"
+    name="bodyFatPercentage"
+    required
+  />
+  <button type="submit">Add Metric</button>
+</form>
+<ul>
+  <li *ngFor="let metric of metrics">
+    {{ metric.date | date }} - Weight: {{ metric.weight }} kg - Body Fat:
+    {{ metric.bodyFatPercentage }}%
+    <button (click)="deleteMetric(metric?._id)">X</button>
+  </li>
+</ul>

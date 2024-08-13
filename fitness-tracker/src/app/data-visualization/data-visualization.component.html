@@ -1,0 +1,10 @@
+<h2>Visualize Your Data</h2>
+<div style="display: block">
+  <canvas
+    *ngIf="isBrowser"
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    chartType="line"
+  ></canvas>
+</div>

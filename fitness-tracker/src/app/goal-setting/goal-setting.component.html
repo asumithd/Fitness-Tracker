@@ -1,0 +1,32 @@
+<h2>Set Fitness Goals</h2>
+<form (ngSubmit)="addGoal()">
+  <input
+    type="text"
+    [(ngModel)]="newGoal.goal"
+    id="goal"
+    name="goal"
+    required
+  />
+  <input
+    type="date"
+    [(ngModel)]="newGoal.targetDate"
+    id="targetDate"
+    name="targetDate"
+    required
+  />
+  <input
+    type="number"
+    [(ngModel)]="newGoal.progress"
+    id="progress"
+    name="progress"
+    required
+  />
+  <button type="submit">Set Goal</button>
+</form>
+<ul>
+  <li *ngFor="let goal of goals">
+    {{ goal.goal }} - Target: {{ goal.targetDate | date }} - Progress:
+    {{ goal.progress }}%
+    <button (click)="deleteGoal(goal?._id)">X</button>
+  </li>
+</ul>
